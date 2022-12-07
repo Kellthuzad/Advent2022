@@ -2,7 +2,7 @@ from pathlib import Path
 import os
 
 def main():
-    for num in range(1, 26, 1):
+    for num in range(1, 27, 1):
         checkForDayAndMakeIfNeeded(num)
 
 
@@ -18,7 +18,7 @@ def main():
     print(lines)
 
 def parse():
-    lines = [l.strip() for l in open("./Day6/input.txt")]
+    lines = [l.strip() for l in open("./Day/input.txt")]
     return lines
 
 main()
