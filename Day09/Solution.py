@@ -41,7 +41,7 @@ def moveTail(snake, i, delta):
         dy = computeDelta(snake[i][1], snake[i+1][1])
 
         snake[i+1] = (snake[i+1][0] + dx, snake[i+1][1] + dy)
-        
+      
         if i+1 == len(snake) - 1:
             tailHistory.add(snake[i+1])
         else:
