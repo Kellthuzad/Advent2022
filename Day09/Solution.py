@@ -37,24 +37,24 @@ def moveHead(direction, magnitude, snake):
 def moveTail(snake, i, delta):
     global tailHistory
     if abs(snake[i][0] - snake[i+1][0]) > 1 or abs(snake[i][1] - snake[i+1][1]) > 1:
-        dx = 1
-        dy = 1
-        if snake[i][0] < snake[i+1][0]:
-            dx *= -1
-        if snake[i][1] < snake[i+1][1]:
-            dy *= -1
+        dx = computeDelta(snake[i][0], snake[i+1][0])
+        dy = computeDelta(snake[i][1], snake[i+1][1])
 
-        if snake[i][0] == snake[i+1][0]:
-            snake[i+1] = (snake[i+1][0], snake[i+1][1] + dy)
-        elif snake[i][1] == snake[i+1][1]:
-            snake[i+1] = (snake[i+1][0] + dx, snake[i+1][1])
-        else:
-            snake[i+1] = (snake[i+1][0] + dx, snake[i+1][1] + dy)
+        snake[i+1] = (snake[i+1][0] + dx, snake[i+1][1] + dy)
         
         if i+1 == len(snake) - 1:
             tailHistory.add(snake[i+1])
         else:
             moveTail(snake, i+1, delta)
+
+def computeDelta(head, tail):
+    if head > tail:
+        return 1
+    elif head == tail:
+        return 0
+    else:
+        return -1
+
 
 
 def parse():
