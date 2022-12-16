@@ -56,7 +56,7 @@ def dfs2(currentValve1, currentValve2, valves, nonZeroValves, openedValves, minu
     
     return max(releasePressures)
 
-
+# didnt get to use. sadge.
 def greedy(valves):
     currentValve = valves['AA']
     openedValves = set()
